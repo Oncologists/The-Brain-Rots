@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour {
         if (other.tag == "Enemy") {
             Debug.Log("worm hurt");
             currentHP -= 1;
-            if (currentHP < 0) {
+            if (currentHP == 0) {
                 Destroy(gameObject, 0.1f);
             }
         }
