@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour {
     private int currentHP;
     void Start() {
         currentHP = maxHP;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Enemy") {
@@ -16,5 +17,9 @@ public class PlayerHealth : MonoBehaviour {
                 Destroy(gameObject, 0.1f);
             }
         }
+    }
+    
+    void Update() {
+        Debug.Log(currentHP);
     }
 }
