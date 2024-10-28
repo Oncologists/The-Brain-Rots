@@ -17,7 +17,12 @@ public class BulletScript : MonoBehaviour
     private GameObject SpawnedBullet;
     // Update is called once per frame
     void Update()
+    
     {
+        // bullets face the direction shot
+        Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+        Bullet.transform.rotation = rotation;
+        
         if (speedup) {
             speed += Time.deltaTime; 
         }

@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour {
     }
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Enemy") {
+            FindObjectOfType<ManageAudio>().Play("hitsound"); // play sound 
             Debug.Log("worm hurt");
             currentHP -= 1;
             if (currentHP == 0) {
