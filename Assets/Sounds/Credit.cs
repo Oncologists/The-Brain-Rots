@@ -6,8 +6,7 @@ public class Credit : MonoBehaviour {
     /* 
     
     Boss Music:
-    https://opengameart.org/content/boss-music-probably
-    https://creativecommons.org/licenses/by-sa/3.0/
-    
+     "Music by Tri-Tachyon - https://soundcloud.com/tri-tachyon/albums".
+     https://opengameart.org/content/heavy-metal-riffs-4hrdm8
     */
 }
