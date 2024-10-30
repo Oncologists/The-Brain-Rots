@@ -31,13 +31,13 @@ public class Stage1 : MonoBehaviour {
             if (crawling & target != null) {
                 float step = speed * Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, target.position, step);
+                FindObjectOfType<ManageAudio>().Play("splat");
             }
         }
 
         // if attacking, play the animation signalling the attack and then summon the blood aoe
         if (attack & target != null) {
-            // teleport blood aoe for a few seconds
-            // WRITE CODE HERE LATER :3
+            // TBD
         }
 
         // timer for crawling and transitions in animator
@@ -53,22 +53,28 @@ public class Stage1 : MonoBehaviour {
         // check if however many seconds have passed and reset it to change transition to a random boss state
         // can be tired, attacking, or moving
         if (transitionTimer >= transitionLength) {
-            int random = new System.Random().Next(1, 4);
+            int random = new System.Random().Next(1, 3); // change it back to (1, 4 if tired is included)
 
             // makes a random state happen
             if (random == 1) {
+                // moving
+                FindObjectOfType<ManageAudio>().Play("screetch");
                 moving = true;
                 attack = false;
                 tired = false;
             } 
             
             if (random == 2) {
+                // attacking
+                FindObjectOfType<ManageAudio>().Play("screetch");
                 moving = false;
                 attack = true;
                 tired = false;
             }
             
             if (random == 3) {
+                // tired
+                FindObjectOfType<ManageAudio>().Play("screetch");
                 moving = false;
                 attack = false;
                 tired = true;

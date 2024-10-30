@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BulletHellController : MonoBehaviour
@@ -9,6 +10,7 @@ public class BulletHellController : MonoBehaviour
     [SerializeField] float swapFrequency;
     [SerializeField] Patterns patterns;
     [SerializeField] int explodeAmount;
+    private Vector2 direction;
 
     public GameObject Bullet;
     public GameObject Player;
@@ -24,7 +26,7 @@ public class BulletHellController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         timer += Time.deltaTime;
         swapTimer += Time.deltaTime;
         if(swapTimer > swapFrequency) {
@@ -64,7 +66,7 @@ public class BulletHellController : MonoBehaviour
         if (patterns == Patterns.Spin) {
             SpawnedBullet = Instantiate(Bullet, transform.position, Quaternion.identity);
             float angleRad = transform.eulerAngles.z * Mathf.Deg2Rad;
-            Vector2 direction = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+            direction = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
             SpawnedBullet.GetComponent<BulletScript>().SetDirection(direction);
         }
         if (patterns == Patterns.Explode) {
@@ -78,7 +80,7 @@ public class BulletHellController : MonoBehaviour
             for (int i = 0; i < 10; i++) {
                 //First Bullet
                 SpawnedBullet = Instantiate(Bullet, transform.position, Quaternion.identity);
-                Vector2 direction = new Vector2(Player.transform.position.x, Player.transform.position.y);
+                direction = new Vector2(Player.transform.position.x, Player.transform.position.y);
                 SpawnedBullet.transform.position = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
                 SpawnedBullet.GetComponent<BulletScript>().SetSpeed(Random.Range(2f, 4f), false, true, true);
                 SpawnedBullet.GetComponent<BulletScript>().SetDuration(Random.Range(5f, 7f));
@@ -95,7 +97,7 @@ public class BulletHellController : MonoBehaviour
         if (patterns == Patterns.ExplosiveBlood) {
             //First Bullet
                 SpawnedBullet = Instantiate(Bullet, transform.position, Quaternion.identity);
-                Vector2 direction = new Vector2(Player.transform.position.x, Player.transform.position.y);
+                direction = new Vector2(Player.transform.position.x, Player.transform.position.y);
                 SpawnedBullet.GetComponent<BulletScript>().SetSpeed(Random.Range(2f, 4f), false, true, true);
                 SpawnedBullet.GetComponent<BulletScript>().SetDuration(5f);
                 SpawnedBullet.GetComponent<BulletScript>().SetExplode(true);
