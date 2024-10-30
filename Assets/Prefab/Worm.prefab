@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6826880258401616469}
   - component: {fileID: 5123976986227966892}
   - component: {fileID: 8426990267236613982}
+  - component: {fileID: 478597531964318904}
   - component: {fileID: 6583011828514590405}
-  - component: {fileID: 6316962261707324177}
   - component: {fileID: 6031269213665577840}
   m_Layer: 0
   m_Name: Worm
@@ -128,6 +128,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85942b6372bf4845a8357d1a2bd7053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 0
+  opp: filler
+  oppoison: filler
+  poisonDuration: 0
+  posionDamage: 0
+--- !u!114 &478597531964318904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250968975141206182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba13e849699af7479639f4c0e2b9946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  sceneCam: {fileID: 0}
+  squirter: {fileID: 0}
 --- !u!61 &6583011828514590405
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,19 +193,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31598186, y: 0.20505953}
   m_EdgeRadius: 0
---- !u!114 &6316962261707324177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2250968975141206182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c432f7858e17fb459034a6c7bacd081, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!61 &6031269213665577840
 BoxCollider2D:
   m_ObjectHideFlags: 0

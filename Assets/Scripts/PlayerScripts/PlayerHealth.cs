@@ -9,24 +9,25 @@ public class PlayerHealth : MonoBehaviour {
     private int currentHP;
     private bool isPosioned;
     public float poisonDuration;
+    private float poisonDurationReset; 
     public int posionDamage;
 
     void Start() {
         currentHP = maxHP;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        poisonDurationReset = poisonDuration;
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag(opp) || other.CompareTag(oppoison)) {
-            FindObjectOfType<ManageAudio>().Play("hitsound");
-            Debug.Log("Player hurt");
-            currentHP -= 1;
+            DecreaseHP(1);
 
             if (currentHP <= 0) {
                 Destroy(gameObject, 0.1f);
             }
 
             if (other.CompareTag(oppoison)) {
+                poisonDuration = poisonDurationReset;
                 isPosioned = true;
                 StartCoroutine(CheckConditionAndRun());
             }
@@ -38,6 +39,8 @@ public class PlayerHealth : MonoBehaviour {
     } 
 
     public void DecreaseHP(int damage) {
+        FindObjectOfType<ManageAudio>().Play("hitsound");
+        Debug.Log("Player hurt");
         currentHP -= damage;
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
     }
