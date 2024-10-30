@@ -32,8 +32,12 @@ public class PlayerHealth : MonoBehaviour {
             }
         }
         if (currentHP <= 0) {
-            Destroy(gameObject, 0.1f);
+            Kill();
         }
+    }
+
+    public void Kill() {
+        Destroy(gameObject);
     }
 
     public int GetCurrentHP() {
