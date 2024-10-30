@@ -81,14 +81,14 @@ public class BulletHellController : MonoBehaviour
                 //First Bullet
                 SpawnedBullet = Instantiate(Bullet, transform.position, Quaternion.identity);
                 direction = new Vector2(Player.transform.position.x, Player.transform.position.y);
-                SpawnedBullet.transform.position = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+                SpawnedBullet.transform.position = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
                 SpawnedBullet.GetComponent<BulletScript>().SetSpeed(Random.Range(2f, 4f), false, true, true);
                 SpawnedBullet.GetComponent<BulletScript>().SetDuration(Random.Range(5f, 7f));
                 SpawnedBullet.GetComponent<BulletScript>().SetDirection(direction);
                 //Second Bullet
                 SpawnedBullet = Instantiate(Bullet, transform.position, Quaternion.identity);
                 direction = -direction;
-                SpawnedBullet.transform.position = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+                SpawnedBullet.transform.position = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
                 SpawnedBullet.GetComponent<BulletScript>().SetSpeed(Random.Range(2f, 4f), false, true, true);
                 SpawnedBullet.GetComponent<BulletScript>().SetDuration(Random.Range(5f, 7f));
                 SpawnedBullet.GetComponent<BulletScript>().SetDirection(direction);

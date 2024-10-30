@@ -48,5 +48,5 @@ MonoBehaviour:
   swapFrequency: 5
   patterns: 3
   explodeAmount: 50
-  Bullet: {fileID: 8480653576811167606, guid: 7e46f8302f7d54343925c2f4923abfb2, type: 3}
-  Player: {fileID: 0}
+  Bullet: {fileID: 5250867820114971410, guid: 59dd9ee72b612b64b9cbea348be275b8, type: 3}
+  Player: {fileID: 2250968975141206182, guid: 1d3f5e2e99e7eb44185ff4cdf06b9d57, type: 3}

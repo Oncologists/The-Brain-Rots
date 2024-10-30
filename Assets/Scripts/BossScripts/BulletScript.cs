@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public GameObject Bullet;
+    public GameObject Sprite;
     bool speedup = false;
     bool speeddown = false;
     bool cap = false;
@@ -21,7 +22,7 @@ public class BulletScript : MonoBehaviour
     {
         // bullets face the direction shot
         Quaternion rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
-        Bullet.transform.rotation = rotation;
+        Sprite.transform.rotation = rotation;
         
         if (speedup) {
             speed += Time.deltaTime; 

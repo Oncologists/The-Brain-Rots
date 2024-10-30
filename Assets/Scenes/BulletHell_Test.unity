@@ -409,9 +409,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2169096890449924690, guid: 0b03b952a5bf0f0479411aec1b29b503, type: 3}
+      propertyPath: Bullet
+      value: 
+      objectReference: {fileID: 5250867820114971410, guid: 59dd9ee72b612b64b9cbea348be275b8, type: 3}
+    - target: {fileID: 2169096890449924690, guid: 0b03b952a5bf0f0479411aec1b29b503, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 1680635811}
+    - target: {fileID: 2169096890449924690, guid: 0b03b952a5bf0f0479411aec1b29b503, type: 3}
+      propertyPath: patterns
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6001953506297559297, guid: 0b03b952a5bf0f0479411aec1b29b503, type: 3}
       propertyPath: m_Name
       value: BulletHellController
