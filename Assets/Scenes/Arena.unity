@@ -275,6 +275,37 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &698147702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 698147703}
+  m_Layer: 0
+  m_Name: ProjectileSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &698147703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698147702}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2028456980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &909136090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1239164452551313456, guid: 0b03b952a5bf0f0479411aec1b29b503, type: 3}
@@ -343,6 +374,7 @@ GameObject:
   - component: {fileID: 1133063199}
   - component: {fileID: 1133063197}
   - component: {fileID: 1133063204}
+  - component: {fileID: 1133063205}
   m_Layer: 0
   m_Name: Tumor
   m_TagString: Enemy
@@ -519,6 +551,23 @@ MonoBehaviour:
   animator: {fileID: 1133063197}
   crawlingIdleTime: 0.25
   transitionLength: 5
+--- !u!114 &1133063205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133063196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85942b6372bf4845a8357d1a2bd7053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 20
+  opp: filler
+  oppoison: Projectile
+  poisonDuration: 3
+  posionDamage: 5
 --- !u!1 &1161986878
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +582,7 @@ GameObject:
   - component: {fileID: 1161986881}
   m_Layer: 0
   m_Name: Arena Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -860,8 +909,10 @@ GameObject:
   - component: {fileID: 2028456981}
   - component: {fileID: 2028456983}
   - component: {fileID: 2028456982}
-  - component: {fileID: 2028456984}
   - component: {fileID: 2028456985}
+  - component: {fileID: 2028456986}
+  - component: {fileID: 2028456987}
+  - component: {fileID: 2028456988}
   m_Layer: 0
   m_Name: Worm
   m_TagString: Player
@@ -929,11 +980,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028456977}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 698147703}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2028456981
@@ -1021,19 +1073,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 10
---- !u!114 &2028456984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028456977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c432f7858e17fb459034a6c7bacd081, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
+  opp: Enemy
+  oppoison: filler
+  poisonDuration: 0
+  posionDamage: 0
 --- !u!61 &2028456985
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1079,6 +1122,50 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35041735, y: 0.32390392}
   m_EdgeRadius: 0
+--- !u!114 &2028456986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028456977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c432f7858e17fb459034a6c7bacd081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  sceneCam: {fileID: 519420031}
+  squirter: {fileID: 2028456987}
+--- !u!114 &2028456987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028456977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7163030d8d7f6ba4ea9fade667ec24ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolDown: {fileID: 2028456988}
+  projectile: {fileID: 872394130744939888, guid: 025c32cdc46c1ed479c7c856425e97fc, type: 3}
+  squirter: {fileID: 698147703}
+  force: 10
+--- !u!114 &2028456988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028456977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110211bd89001d542aaef55addffc0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolDown: 1
 --- !u!1 &2051224132
 GameObject:
   m_ObjectHideFlags: 0
