@@ -567,7 +567,7 @@ MonoBehaviour:
   opp: filler
   oppoison: Projectile
   poisonDuration: 3
-  posionDamage: 5
+  posionDamage: 1
 --- !u!1 &1161986878
 GameObject:
   m_ObjectHideFlags: 0
