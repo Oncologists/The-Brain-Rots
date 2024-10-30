@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
     public int maxHP;
-    public string opp = "filler";
+    public string[] opp = {"filler"};
     public string oppoison = "filler";
     private int currentHP;
     private bool isPosioned;
@@ -19,18 +19,20 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag(opp) || other.CompareTag(oppoison)) {
-            DecreaseHP(1);
-
-            if (currentHP <= 0) {
-                Destroy(gameObject, 0.1f);
+        foreach (string tag in opp) {
+            if (other.CompareTag(tag)) {
+                DecreaseHP(1);
             }
-
+        } 
+        if (other.CompareTag(oppoison)) {
             if (other.CompareTag(oppoison)) {
                 poisonDuration = poisonDurationReset;
                 isPosioned = true;
                 StartCoroutine(CheckConditionAndRun());
             }
+        }
+        if (currentHP <= 0) {
+            Destroy(gameObject, 0.1f);
         }
     }
 
