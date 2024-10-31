@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,19 @@ public class PlayerHealth : MonoBehaviour {
     public string[] opp = {"filler"};
     public string oppoison = "filler";
     private int currentHP;
-    private bool isPosioned;
+    private bool isPoisoned;
     public float poisonDuration;
     private float poisonDurationReset; 
-    public int posionDamage;
+    public int poisonDamage;
+    private Boolean isPlayer;
 
     void Start() {
+        if (gameObject.CompareTag("Player")) {
+            isPlayer = true;
+        } else {
+            isPlayer = false;
+        }
+
         currentHP = maxHP;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         poisonDurationReset = poisonDuration;
@@ -27,7 +35,7 @@ public class PlayerHealth : MonoBehaviour {
         if (other.CompareTag(oppoison)) {
             if (other.CompareTag(oppoison)) {
                 poisonDuration = poisonDurationReset;
-                isPosioned = true;
+                isPoisoned = true;
                 StartCoroutine(CheckConditionAndRun());
             }
         }
@@ -45,10 +53,13 @@ public class PlayerHealth : MonoBehaviour {
     } 
 
     public void DecreaseHP(int damage) {
-        FindObjectOfType<ManageAudio>().Play("hitsound");
-        Debug.Log("Player hurt");
         currentHP -= damage;
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
+        if (isPlayer) {
+            FindObjectOfType<ManageAudio>().Play("hitsound");
+        } else {
+            FindObjectOfType<ManageAudio>().Play("bosshurtsound");
+        }
     }
 
     public void IncreaseHP(int heal) {
@@ -57,17 +68,17 @@ public class PlayerHealth : MonoBehaviour {
     }
     
     void Update() {
-        Debug.Log(currentHP);
+        // Debug.Log(currentHP);
     }
 
     private IEnumerator CheckConditionAndRun() {
-        while (isPosioned) {
-            Debug.Log("poison");
-            DecreaseHP(posionDamage);
+        while (isPoisoned) {
+            // Debug.Log("poison");
+            DecreaseHP(poisonDamage);
             yield return new WaitForSeconds(1f);
             poisonDuration -= 1f;
             if (poisonDuration <= 0) {
-                isPosioned = false;
+                isPoisoned = false;
             }
         }
     }
