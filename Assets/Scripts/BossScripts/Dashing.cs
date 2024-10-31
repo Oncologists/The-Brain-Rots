@@ -31,7 +31,7 @@ public class Dashing : MonoBehaviour {
         StartCoroutine(RotateTowardsTarget());
 
         // Wait for 1 second
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         // Use the static dashTargetPosition to dash toward
         rb.AddForce((dashTargetPosition - transform.position).normalized * dashStrength, ForceMode2D.Impulse);
@@ -136,15 +136,15 @@ public class Dashing : MonoBehaviour {
         // check if however many seconds have passed and reset it to change transition to a random boss state
         // can be tired, attacking, or moving
         if (transitionTimer >= transitionLength) {
-            int random = new System.Random().Next(1, 4); // change it back to (1, 4 if tired is included)
+            int random = new System.Random().Next(1, 3); // change it back to (1, 4 if tired is included)
 
             // makes a random state happen
             if (random == 1) {
-                // tired
+                // moving
                 FindObjectOfType<ManageAudio>().Play("screetch");
-                moving = false;
+                moving = true;
                 attack = false;
-                tired = true;
+                tired = false;
             } 
             
             if (random == 2) {
@@ -156,11 +156,11 @@ public class Dashing : MonoBehaviour {
             }
             
             if (random == 3) {
-                // moving
+                // tired
                 FindObjectOfType<ManageAudio>().Play("screetch");
-                moving = true;
+                moving = false;
                 attack = false;
-                tired = false;
+                tired = true;
             }
 
             transitionTimer = 0f;

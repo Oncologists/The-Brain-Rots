@@ -564,7 +564,7 @@ MonoBehaviour:
   speed: 3
   animator: {fileID: 1133063197}
   crawlingIdleTime: 0.3
-  transitionLength: 3
+  transitionLength: 5
   dashStrength: 15
   movepoint: {fileID: 1195848847}
 --- !u!1 &1161986878
