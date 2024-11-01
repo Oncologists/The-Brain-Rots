@@ -1121,7 +1121,7 @@ MonoBehaviour:
   animator: {fileID: 1133063197}
   dashing: {fileID: 1133063206}
   animate: {fileID: 1213770782}
-  maxHP: 2
+  maxHP: 100
   opp:
   - filler
   oppoison: Projectile
@@ -1590,6 +1590,10 @@ MonoBehaviour:
   Player: {fileID: 2028456977}
   Boss: {fileID: 1133063196}
   Healthbar: {fileID: 357488831}
+  returnToZero: {fileID: 0}
+  phase2: {fileID: 0}
+  phase3: {fileID: 0}
+  phase4: {fileID: 0}
 --- !u!4 &1252230583
 Transform:
   m_ObjectHideFlags: 0
@@ -2393,6 +2397,7 @@ MonoBehaviour:
   slidingFactor: 0.175
   sceneCam: {fileID: 519420031}
   squirter: {fileID: 2028456987}
+  biting: {fileID: 0}
 --- !u!95 &2028456990
 Animator:
   serializedVersion: 5

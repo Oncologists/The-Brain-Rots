@@ -1199,7 +1199,7 @@ MonoBehaviour:
   animator: {fileID: 1686184876}
   dashing: {fileID: 1133063206}
   animate: {fileID: 1213770782}
-  maxHP: 2
+  maxHP: 50
   opp:
   - filler
   oppoison: Projectile
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   rb: {fileID: 1133063200}
   speed: 6.5
   animator: {fileID: 1133063197}
-  crawlingIdleTime: 0.2
+  crawlingIdleTime: 0.25
   transitionLength: 4
   dashStrength: 20
   movepoint: {fileID: 1836559048}
@@ -2363,8 +2363,8 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: music
-    clip: {fileID: 8300000, guid: 9100a118e46bbcc459a3d11dd5bfa660, type: 3}
-    volume: 0.33
+    clip: {fileID: 8300000, guid: 9e2646b30ad6a5e47878bfa2e2807a8f, type: 3}
+    volume: 0.25
     pitch: 1
     source: {fileID: 0}
   - name: heartbeat
