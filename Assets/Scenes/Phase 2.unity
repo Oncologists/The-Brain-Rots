@@ -1005,9 +1005,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09548092, y: -0.35061908}
+  m_Offset: {x: -0.016174, y: 0.04591195}
   serializedVersion: 2
-  m_Radius: 1.4444206
+  m_Radius: 2.532051
 --- !u!50 &1133063200
 Rigidbody2D:
   serializedVersion: 4
@@ -1016,7 +1016,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133063196}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2128,6 +2128,7 @@ GameObject:
   - component: {fileID: 2028456980}
   - component: {fileID: 2028456979}
   - component: {fileID: 2028456981}
+  - component: {fileID: 2028456991}
   - component: {fileID: 2028456983}
   - component: {fileID: 2028456982}
   - component: {fileID: 2028456985}
@@ -2397,7 +2398,7 @@ MonoBehaviour:
   slidingFactor: 0.175
   sceneCam: {fileID: 519420031}
   squirter: {fileID: 2028456987}
-  biting: {fileID: 0}
+  biting: {fileID: 2028456991}
 --- !u!95 &2028456990
 Animator:
   serializedVersion: 5
@@ -2419,6 +2420,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2028456991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028456977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370d69e28584de24f9b4252c32bf3f18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 3
+  targetTag: Enemy
+  regenAmount: 1
+  regen: {fileID: 2028456983}
 --- !u!1 &2051224132
 GameObject:
   m_ObjectHideFlags: 0
