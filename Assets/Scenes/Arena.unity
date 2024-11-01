@@ -819,8 +819,7 @@ MonoBehaviour:
   - filler
   oppoison: Projectile
   poisonDuration: 3
-  poisonDamage: 19
-  nextPhase: {fileID: 2250968975141206182, guid: 1d3f5e2e99e7eb44185ff4cdf06b9d57, type: 3}
+  poisonDamage: 44
 --- !u!114 &1133063206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,6 +1162,10 @@ MonoBehaviour:
   Player: {fileID: 2028456977}
   Boss: {fileID: 1133063196}
   Healthbar: {fileID: 357488831}
+  returnToZero: {fileID: 1133063206}
+  phase2: {fileID: 8849232366767998407, guid: 82207c5f7463cf748bca139f72795456, type: 3}
+  phase3: {fileID: 8849232366767998407, guid: 82207c5f7463cf748bca139f72795456, type: 3}
+  phase4: {fileID: 8849232366767998407, guid: 82207c5f7463cf748bca139f72795456, type: 3}
 --- !u!4 &1252230583
 Transform:
   m_ObjectHideFlags: 0

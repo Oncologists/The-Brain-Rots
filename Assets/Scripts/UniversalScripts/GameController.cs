@@ -7,6 +7,10 @@ public class GameController : MonoBehaviour
     public GameObject Player;
     public GameObject Boss;
     public GameObject Healthbar;
+    public Dashing returnToZero;
+    public GameObject phase2;
+    public GameObject phase3;
+    public GameObject phase4;
     private int stage = 1;
     // Start is called before the first frame update
     void Start()
@@ -23,21 +27,23 @@ public class GameController : MonoBehaviour
         }
         if (Boss.GetComponent<PlayerHealth>().GetCurrentHP() <= 0) {
             NextPhase();
-            Boss.GetComponent<PlayerHealth>().Kill();
         }
     }
 
     void NextPhase() {
         //Play Death Animation and Flesh Blobs going back to the middle.
+        Dashing dashingComponent = returnToZero.GetComponent<Dashing>();
+        dashingComponent.MoveToOrigin();
         stage++;
         if (stage == 2) {
-            //Summon Stage 2 Prefab
+            Instantiate(phase2, Vector2.zero, Quaternion.identity);
         }
         if (stage == 3) {
-            //Summon Stage 3 Prefab
+            Instantiate(phase3, Vector2.zero, Quaternion.identity);
         }
         if (stage == 4) {
-            //Summon Stage 4 Prefab
+            Instantiate(phase4, Vector2.zero, Quaternion.identity);
         }
+        Boss.GetComponent<PlayerHealth>().Kill();
     }
 }

@@ -13,7 +13,6 @@ public class PlayerHealth : MonoBehaviour {
     private float poisonDurationReset; 
     public int poisonDamage;
     private Boolean isPlayer;
-    public GameObject nextPhase;
 
 
     void Start() { 
@@ -44,10 +43,6 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     public void Kill() {
-        if (!isPlayer) {
-            Vector2 position = transform.position;
-            Instantiate(nextPhase, position, Quaternion.identity);
-        }
         Destroy(gameObject);
     }
 
