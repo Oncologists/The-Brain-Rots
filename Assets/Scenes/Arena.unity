@@ -1140,7 +1140,8 @@ MonoBehaviour:
   - filler
   oppoison: Projectile
   poisonDuration: 3
-  poisonDamage: 1
+  poisonDamage: 19
+  nextPhase: {fileID: 2250968975141206182, guid: 1d3f5e2e99e7eb44185ff4cdf06b9d57, type: 3}
 --- !u!114 &1133063206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1980,6 +1981,7 @@ MonoBehaviour:
   oppoison: filler
   poisonDuration: 3
   poisonDamage: 1
+  nextPhase: {fileID: 0}
 --- !u!61 &2028456985
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2064,11 +2066,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2028456977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fba13e849699af7479639f4c0e2b9946, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c432f7858e17fb459034a6c7bacd081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  slidingFactor: 0.175
+  slidingFactor: 0.1
   sceneCam: {fileID: 519420031}
   squirter: {fileID: 2028456987}
 --- !u!95 &2028456990
