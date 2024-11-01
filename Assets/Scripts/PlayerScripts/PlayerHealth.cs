@@ -39,13 +39,17 @@ public class PlayerHealth : MonoBehaviour {
                 StartCoroutine(CheckConditionAndRun());
             }
         }
-        if (currentHP <= 0) {
-            Kill();
-        }
+        // if (currentHP <= 0) {
+        //     Kill();
+        // }
     }
 
     public void Kill() {
         Destroy(gameObject);
+    }
+
+    public int GetMaxHP() {
+        return maxHP;
     }
 
     public int GetCurrentHP() {

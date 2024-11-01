@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "The Brain Rots.sln"
+    "dotnet.defaultSolution": "The-Brain-Rots.sln"
 }
