@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour {
     public int poisonDamage;
     private Boolean isPlayer;
 
-    void Start() {
+    void Start() { 
         if (gameObject.CompareTag("Player")) {
             isPlayer = true;
         } else {
@@ -39,9 +39,6 @@ public class PlayerHealth : MonoBehaviour {
                 StartCoroutine(CheckConditionAndRun());
             }
         }
-        // if (currentHP <= 0) {
-        //     Kill();
-        // }
     }
 
     public void Kill() {

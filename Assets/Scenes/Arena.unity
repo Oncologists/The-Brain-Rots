@@ -340,7 +340,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Time: 0.305
   m_PreviewTimeScale: 1
   m_Parameters:
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7877358, g: 0.19321822, b: 0.25691655, a: 1}
+  m_Color: {r: 0.227451, g: 0.23529413, b: 0.3254902, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -945,6 +945,7 @@ GameObject:
   - component: {fileID: 1133063197}
   - component: {fileID: 1133063204}
   - component: {fileID: 1133063205}
+  - component: {fileID: 1133063206}
   m_Layer: 0
   m_Name: Tumor
   m_TagString: Enemy
@@ -1102,6 +1103,7 @@ Transform:
   m_Children:
   - {fileID: 909136090}
   - {fileID: 1775190078}
+  - {fileID: 1836559048}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1133063204
@@ -1111,7 +1113,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133063196}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b095046c223b8b44ca2add2c1a9ddae8, type: 3}
   m_Name: 
@@ -1139,6 +1141,26 @@ MonoBehaviour:
   oppoison: Projectile
   poisonDuration: 3
   poisonDamage: 1
+--- !u!114 &1133063206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133063196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4171582cb67d20b4ab13840793a6746a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2028456980}
+  rb: {fileID: 1133063200}
+  speed: 3.5
+  animator: {fileID: 1133063197}
+  crawlingIdleTime: 0.25
+  transitionLength: 5
+  dashStrength: 15
+  movepoint: {fileID: 1836559048}
 --- !u!1 &1149140050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,6 +1688,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1836559047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836559048}
+  m_Layer: 0
+  m_Name: Movepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1836559048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836559047}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1133063202}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1900965534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,6 +2038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolDown: {fileID: 2028456988}
+  animator: {fileID: 2028456990}
   projectile: {fileID: 872394130744939888, guid: 025c32cdc46c1ed479c7c856425e97fc, type: 3}
   squirter: {fileID: 698147703}
   force: 10
