@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour {
     public int poisonDamage;
     private Boolean isPlayer;
 
+
     void Start() { 
         if (gameObject.CompareTag("Player")) {
             isPlayer = true;

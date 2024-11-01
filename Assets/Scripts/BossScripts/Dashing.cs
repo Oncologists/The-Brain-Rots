@@ -71,6 +71,14 @@ public class Dashing : MonoBehaviour {
         transform.right = targetDirection;
     }
 
+    public void MoveToOrigin() {
+        transform.position = Vector2.zero;
+        rb.velocity = Vector2.zero;
+        moving = false;
+        attack = false;
+        tired = false;
+    }
+
     IEnumerator RotateBackToOriginal() {
         float rotationSpeed = 100f; 
         float duration = 1f; //  time to rotate back
