@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     private Vector2 movDir;
     private Rigidbody2D rb;
     public ProjectileShooter squirter;
+    public BiteScript biting;
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -31,6 +32,10 @@ public class PlayerController : MonoBehaviour {
 
         if(Input.GetMouseButtonDown(0)) {
             squirter.Fire();
+        }
+
+        if(Input.GetMouseButtonDown(1)) {
+            biting.Bite();
         }
 
         movDir = new Vector2(x, y).normalized;
