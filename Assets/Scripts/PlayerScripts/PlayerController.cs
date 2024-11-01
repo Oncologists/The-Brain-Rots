@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     [SerializeField] private float speed;
+    [SerializeField] private float slidingFactor = 0.1f;
     private Vector2 mousePosition;
     public Camera sceneCam;
     private Vector2 movDir;
@@ -38,7 +39,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Move() {
-        rb.velocity = movDir * speed;
+        Vector2 targetVelocity = movDir * speed;
+
+        rb.velocity = Vector2.Lerp(rb.velocity, targetVelocity, slidingFactor);
 
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
