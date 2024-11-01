@@ -2,8 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
+    public Animator animator;
+    public Dashing dashing;
+    public DeathAnimation animate;
     public int maxHP;
     public string[] opp = {"filler"};
     public string oppoison = "filler";
@@ -41,8 +45,31 @@ public class PlayerHealth : MonoBehaviour {
         }
     }
 
+    private IEnumerator NextPhase() {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Phase 2");
+    }
+
+
     public void Kill() {
-        Destroy(gameObject);
+        if (gameObject.CompareTag("Player")) {
+            SceneManager.LoadSceneAsync("Main Menu");
+        }
+        
+        if (gameObject.CompareTag("Enemy")) {
+            if (SceneManager.GetActiveScene().name == "Phase 1") {
+                animator.SetBool("Blink", true);
+                StartCoroutine(NextPhase());
+            } else {
+                foreach (Transform child in transform) {
+                    Destroy(child.gameObject);
+                }
+                dashing.setSpeed(0, 0);
+                Destroy(gameObject);
+                FindObjectOfType<ManageAudio>().Play("deathnoise");
+                animate.startAnimation();
+            }
+        }
     }
 
     public int GetMaxHP() {
@@ -69,7 +96,9 @@ public class PlayerHealth : MonoBehaviour {
     }
     
     void Update() {
-        // Debug.Log(currentHP);
+        if (currentHP <= 0) {
+            Kill();
+        }
     }
 
     private IEnumerator CheckConditionAndRun() {

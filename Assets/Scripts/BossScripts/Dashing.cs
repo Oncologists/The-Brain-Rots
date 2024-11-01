@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Dashing : MonoBehaviour {
@@ -15,9 +16,9 @@ public class Dashing : MonoBehaviour {
     private Vector3 dashTargetPosition;
     private float crawlingTimer = 0f; // timer for the little crawl animation
     private float transitionTimer = 0f;
-    private bool moving = true; // this is the transition of whether or not he is moving at all 
+    private bool moving = false; // this is the transition of whether or not he is moving at all 
     private bool crawling = false; // this is just to alternate between moving and not moving for choppy movement 
-    private bool tired = false;
+    private bool tired = true;
     private bool attack = false;
     private Quaternion originalRotation; // original rotation
 
@@ -97,8 +98,8 @@ public class Dashing : MonoBehaviour {
     // this script just makes it so every "toggleInterval" seconds the boss moves slightly towards 
     // the player, for a "crawling" animation
     void Update() {
-        Debug.Log(transitionTimer);
-        Debug.Log("Moving " + moving + "\tTired: " + tired + "\tAttacking: " + attack);
+        // Debug.Log(transitionTimer);
+        // Debug.Log("Moving " + moving + "\tTired: " + tired + "\tAttacking: " + attack);
 
         animator.SetBool("Phase1Crawl", crawling); // the non-crawling stand and "idle / tired" will look different 
         animator.SetBool("Phase1Tired", tired); 
@@ -165,5 +166,10 @@ public class Dashing : MonoBehaviour {
 
             transitionTimer = 0f;
         }
+    }
+
+    public void setSpeed(float newSpeed, float newDashStrength) {
+        speed = newSpeed;
+        dashStrength = newDashStrength;
     }
 }

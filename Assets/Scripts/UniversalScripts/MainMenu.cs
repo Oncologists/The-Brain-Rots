@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
    public void PlayGame() {
-        SceneManager.LoadSceneAsync("Arena");
+        SceneManager.LoadSceneAsync("Phase 1");
     }
 
     void Start() {
