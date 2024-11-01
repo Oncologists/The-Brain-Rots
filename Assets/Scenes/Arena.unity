@@ -1155,7 +1155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2028456980}
   rb: {fileID: 1133063200}
-  speed: 3.5
+  speed: 5
   animator: {fileID: 1133063197}
   crawlingIdleTime: 0.25
   transitionLength: 5
